@@ -1,0 +1,56 @@
+.home {
+  background-color: #fdebd3;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 80px;
+  height: calc(100vh - 120px);
+  background-image: url("https://images.unsplash.com/photo-1604382354936-07c5d9983bd3");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero h1,
+.hero p,
+.order-btn {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 80px;
+  color: white;
+  font-weight: 900;
+}
+
+.hero p {
+  font-size: 22px;
+  color: #f1f1f1;
+  margin-top: 10px;
+}
+
+/* ORDER BUTTON BOTTOM RIGHT */
+.order-btn {
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+  padding: 18px 40px;
+  font-size: 20px;
+  border-radius: 40px;
+  border: none;
+  background-color: #e63946;
+  color: white;
+  cursor: pointer;
+}

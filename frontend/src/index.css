@@ -1,0 +1,17 @@
+* {
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #fde9d4;
+}
+
+button {
+  cursor: pointer;
+}
+

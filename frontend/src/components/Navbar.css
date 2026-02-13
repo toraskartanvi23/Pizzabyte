@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background-color: #fdebd3;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  color: #e63946;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  padding: 12px 26px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  background-color: #e63946;
+  color: white;
+  cursor: pointer;
+}
