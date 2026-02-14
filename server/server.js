@@ -16,7 +16,7 @@ const app = express();
 
 // ================== CORS Configuration ==================
 // Replace this with your actual Vercel frontend URL
-const FRONTEND_URL = process.env.FRONTEND_URL || "https://your-frontend.vercel.app";
+const FRONTEND_URL = process.env.FRONTEND_URL || "https://pizzabyte-gamma.vercel.app/";
 
 app.use(
   cors({
@@ -51,7 +51,7 @@ mongoose
   });
 
 // ================== Start Server ==================
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 1000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

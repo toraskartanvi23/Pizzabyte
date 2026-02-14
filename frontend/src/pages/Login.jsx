@@ -16,7 +16,7 @@ const Login = () => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("email", res.data.email);
         localStorage.setItem("role", res.data.role);
-  toast.push("Login successful!");
+        toast.push("Login successful!");
 
         if (res.data.role === "admin") {
           window.location.href = "/admin/dashboard";
@@ -32,6 +32,60 @@ const Login = () => {
       toast.push(msg);
     }
   };
+
+  return (
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2>Login to PizzaByte</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+        <p>
+          Don't have an account? <a href="/register">Register here</a>
+        </p>
+      </form>
+    </div>
+  );
+};
+  return (
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2>Login to PizzaByte</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+        <p>
+          Don't have an account? <a href="/register">Register here</a>
+        </p>
+      </form>
+    </div>
+  );
+
+
 
   return (
     <div
@@ -87,7 +141,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
 
 const inputStyle = {
   width: "100%",

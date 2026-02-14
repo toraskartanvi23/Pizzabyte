@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// Backend URL from environment variable
-const baseUrl = import.meta.env.REACT_APP_API_URL || "https://pizzabyte.onrender.com";
+// Backend URL from environment variable (VITE_ prefix for Vite projects)
+const baseUrl = import.meta.env.VITE_API_URL || "https://pizzabyte.onrender.com";
 
 const API = axios.create({
   baseURL: baseUrl,
@@ -30,5 +30,3 @@ API.interceptors.response.use(
 );
 
 export default API;
-
-
