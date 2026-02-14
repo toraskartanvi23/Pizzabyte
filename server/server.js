@@ -11,12 +11,15 @@ const inventoryRoutes = require("./routes/inventoryRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
-
 // Initialize app FIRST
 const app = express();
 
-// Middlewares
-app.use(cors());
+// Updated Middlewares for Global Access
+app.use(cors({
+  origin: "*", // Allows any device/URL to access your API
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
@@ -27,19 +30,18 @@ app.use("/api/inventory", inventoryRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/payment", paymentRoutes);
 
-
-
-
 // Root route
 app.get("/", (req, res) => {
-  res.send("Auth Server Running");
+  res.send("PizzaByte Server Running Successfully");
 });
 
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error(err));
+  .catch((err) => {
+    console.error("MongoDB Connection Error:", err);
+  });
 
 // Start server
 const PORT = process.env.PORT || 5000;
