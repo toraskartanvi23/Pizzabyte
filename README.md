@@ -6,18 +6,15 @@ A Pizza-Delivery App
 
 **Intern Name:** Tanvi Toraskar  
 **Domain:** Web Development  
-**Task Number:** (Add your task number here)  
+**Task Number:** 3  
 **GitHub Repository:** [https://github.com/toraskartanvi23/Pizzabyte](https://github.com/toraskartanvi23/Pizzabyte)  
-**Demo Video (YouTube/LinkedIn):** (Insert your video link here)  
-**LinkedIn Post Link:** (Insert LinkedIn post link here)
-
 ---
 
 ## 📘 Project Overview
 **PizzaByte** is a full-stack pizza ordering system designed to simplify online pizza customization and management.  
 The application supports both **user** and **admin** roles, enabling users to build and order pizzas, and admins to manage inventory, orders, and low-stock alerts.  
 
-This project was developed as part of the **OIBSIP Web Development Internship Program** to demonstrate practical implementation of the MERN stack, authentication, and real-world integrations.
+This project was developed as part of the **OIB-SIP Web Development Internship Program** to demonstrate practical implementation of the MERN stack, authentication, and real-world integrations.
 
 ---
 
@@ -27,8 +24,6 @@ This project was developed as part of the **OIBSIP Web Development Internship Pr
 - Register and log in securely using JWT authentication  
 - Build custom pizzas (choose base, sauce, cheese, veggies)  
 - Place and track pizza orders  
-- View order history  
-- (Upcoming) Simulated payment gateway integration using :contentReference[oaicite:0]{index=0}  
 
 ### 🧑‍💼 Admin Features
 - Role-based admin access  
