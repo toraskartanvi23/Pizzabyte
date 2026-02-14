@@ -11,18 +11,25 @@ const inventoryRoutes = require("./routes/inventoryRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
-// Initialize app FIRST
+// Initialize app
 const app = express();
 
-// Updated Middlewares for Global Access
-app.use(cors({
-  origin: "*", 
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+// ================== CORS Configuration ==================
+// Replace this with your actual Vercel frontend URL
+const FRONTEND_URL = process.env.FRONTEND_URL || "https://your-frontend.vercel.app";
+
+app.use(
+  cors({
+    origin: FRONTEND_URL,  // allow requests only from your frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,      // allow cookies/sessions if used
+  })
+);
+
+// ================== Middlewares ==================
 app.use(express.json());
 
-// Routes
+// ================== Routes ==================
 app.use("/api/auth", authRoutes);
 app.use("/api/test", testRoutes);
 app.use("/api/admin", adminRoutes);
@@ -35,7 +42,7 @@ app.get("/", (req, res) => {
   res.send("PizzaByte Server Running Successfully");
 });
 
-// MongoDB connection
+// ================== MongoDB Connection ==================
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
@@ -43,7 +50,7 @@ mongoose
     console.error("MongoDB Connection Error:", err);
   });
 
-// Start server
+// ================== Start Server ==================
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
