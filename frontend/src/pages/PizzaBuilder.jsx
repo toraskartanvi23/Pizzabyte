@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import API from "../api/api";
 import { useToast } from "../components/Toast";
 
-
-
 const PizzaBuilder = () => {
   const [userEmail, setUserEmail] = useState(localStorage.getItem("email") || "");
   const [base, setBase] = useState("");
@@ -199,7 +197,6 @@ const PizzaBuilder = () => {
         }
       `}</style>
       
-      {/* Semi-transparent Content Card for visibility */}
       <div style={styles.contentWrapper}>
         <h1 style={styles.heading}>🍕 Build Your Custom Pizza 🍕</h1>
 
@@ -268,25 +265,31 @@ const PizzaBuilder = () => {
 
 const styles = {
   container: {
-    padding: "40px",
+    padding: "40px 20px",
     backgroundColor: "#fff8f0",
     minHeight: "100vh",
-    backgroundImage: "url('/pizz.jpg')", // Direct path to public folder
+    backgroundImage: "url('/pizz.jpg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
+    // Added Flexbox centering logic below
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start', // Starts from top but stays centered horizontally
   },
   contentWrapper: {
-    backgroundColor: "rgba(255, 255, 255, 0.92)", // White background with high opacity
+    backgroundColor: "rgba(255, 255, 255, 0.92)",
     padding: "40px",
     borderRadius: "20px",
     maxWidth: "800px",
     width: "100%",
     boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-    textAlign: "center"
+    textAlign: "center",
+    margin: "0 auto", // Backup for older browsers
   },
   heading: {
-    color: "#2b2d42", // Dark blue-black for maximum contrast
+    color: "#2b2d42",
     fontSize: "32px",
     marginBottom: "20px",
     fontWeight: "900",
@@ -307,7 +310,7 @@ const styles = {
     borderBottom: "1px solid #ddd"
   },
   subheading: {
-    color: "#111", // Solid black
+    color: "#111",
     marginBottom: "15px",
     fontSize: "18px",
     fontWeight: "700"
@@ -322,7 +325,7 @@ const styles = {
     padding: "10px 20px",
     borderRadius: "25px",
     backgroundColor: "#fff",
-    color: "#111", // Dark text on white buttons
+    color: "#111",
     border: "2px solid #e63946",
     cursor: "pointer",
     fontWeight: "600",
@@ -354,7 +357,7 @@ const styles = {
     padding: "16px 50px",
     border: "none",
     borderRadius: "35px",
-    backgroundColor: "#2b2d42", // Dark color for main action button contrast
+    backgroundColor: "#2b2d42",
     color: "white",
     fontSize: "18px",
     fontWeight: "bold",
@@ -366,7 +369,7 @@ const styles = {
     padding: "12px 30px",
     border: "none",
     borderRadius: "30px",
-    backgroundColor: "#e63946", // Bright red for payment to stand out
+    backgroundColor: "#e63946",
     color: "white",
     fontSize: "16px",
     fontWeight: "bold",
