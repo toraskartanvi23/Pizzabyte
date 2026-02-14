@@ -16,15 +16,26 @@ const app = express();
 
 // ================== CORS Configuration ==================
 // Replace this with your actual Vercel frontend URL
-const FRONTEND_URL = process.env.FRONTEND_URL || "https://pizzabyte-gamma.vercel.app/";
+const FRONTEND_URL = process.env.FRONTEND_URL || "https://pizzabyte-gamma.vercel.app";
 
-app.use(
-  cors({
-    origin: FRONTEND_URL,  // allow requests only from your frontend
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,      // allow cookies/sessions if used
-  })
-);
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    // Allow all vercel.app domains
+    if (origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 
 // ================== Middlewares ==================
 app.use(express.json());
