@@ -16,7 +16,7 @@ const app = express();
 
 // Updated Middlewares for Global Access
 app.use(cors({
-  origin: "*", // Allows any device/URL to access your API
+  origin: "*", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
