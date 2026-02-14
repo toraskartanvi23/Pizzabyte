@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import API from "../api/api";
 import { useToast } from "../components/Toast";
-// Import the image from your assets folder
-import pizzaBg from "../assets/pizz.jpg"; 
+
+
 
 const PizzaBuilder = () => {
   const [userEmail, setUserEmail] = useState(localStorage.getItem("email") || "");
@@ -268,16 +268,13 @@ const PizzaBuilder = () => {
 
 const styles = {
   container: {
+    padding: "40px",
+    backgroundColor: "#fff8f0",
     minHeight: "100vh",
-    padding: "40px 20px",
-    backgroundImage: `url(${pizzaBg})`,
+    backgroundImage: "url('/pizz.jpg')", // Direct path to public folder
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
   },
   contentWrapper: {
     backgroundColor: "rgba(255, 255, 255, 0.92)", // White background with high opacity
