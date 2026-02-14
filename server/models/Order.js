@@ -9,8 +9,13 @@ const orderSchema = new mongoose.Schema({
   totalAmount: { type: Number, required: true },
   status: {
     type: String,
-  enum: ["Order Received", "In Kitchen", "Out for Delivery", "Delivered"],
+  enum: ["Paid", "Order Received", "In Kitchen", "Out for Delivery", "Delivered"],
     default: "Order Received",
+  },
+  payment: {
+    paymentId: { type: String },
+    orderId: { type: String }, // razorpay order id
+    status: { type: String, enum: ["pending", "paid", "failed"], default: "pending" },
   },
   createdAt: { type: Date, default: Date.now },
 });

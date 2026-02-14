@@ -224,7 +224,7 @@ const styles = {
   backgroundPosition: 'center',
   },
   title: {
-    color: "#e63946",
+    color: "#ecedecff",
     textAlign: "center",
     marginBottom: "30px",
   },

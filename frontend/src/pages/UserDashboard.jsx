@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import API from "../api/api";
 import { useToast } from "../components/Toast";
+// Import the image from your assets folder
+import pizzaBg from "../assets/pizz.jpg"; 
 
 const POLL_INTERVAL = 5000; // 5s
 
@@ -134,19 +136,24 @@ const UserDashboard = () => {
 
 const styles = {
   container: {
-  padding: "40px",
-  backgroundColor: "#fff8f0",
-  minHeight: "100vh",
-  backgroundImage: "url('/pizza-bg.jpg')",
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
+    padding: "40px",
+    backgroundColor: "#fff8f0",
+    minHeight: "100vh",
+    // Use the imported image variable here
+    backgroundImage: `url(${pizzaBg})`, 
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat', // Added to prevent tiling
+    backgroundAttachment: 'fixed', // Added for a parallax-like effect (optional)
   },
   heading: {
     color: "#e63946",
     marginBottom: "30px",
+    // Added a slight text shadow to make text readable over the image
+    textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8)", 
   },
   card: {
-    background: "#fff",
+    background: "rgba(255, 255, 255, 0.95)", // Made slightly transparent so BG shows through a tiny bit
     padding: "20px",
     borderRadius: "12px",
     marginBottom: "20px",
@@ -158,30 +165,30 @@ const styles = {
     color: "#e63946",
   },
   popupOverlay: {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'rgba(0,0,0,0.35)',
-  pointerEvents: 'auto',
-  zIndex: 9999,
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.35)',
+    pointerEvents: 'auto',
+    zIndex: 9999,
   },
   popupBox: {
     pointerEvents: 'auto',
-  background: '#fff',
-  padding: '22px 36px',
-  borderRadius: 10,
-  boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
-  fontFamily: 'Times New Roman, Times, serif',
-  fontSize: '28px',
-  lineHeight: '1.15',
-  fontWeight: 700,
-  color: '#111',
-  textAlign: 'center',
+    background: '#fff',
+    padding: '22px 36px',
+    borderRadius: 10,
+    boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
+    fontFamily: 'Times New Roman, Times, serif',
+    fontSize: '28px',
+    lineHeight: '1.15',
+    fontWeight: 700,
+    color: '#111',
+    textAlign: 'center',
   }
 };
 

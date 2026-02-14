@@ -9,6 +9,7 @@ const testRoutes = require("./routes/testRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const inventoryRoutes = require("./routes/inventoryRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 
 // Initialize app FIRST
@@ -24,6 +25,7 @@ app.use("/api/test", testRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/payment", paymentRoutes);
 
 
 
